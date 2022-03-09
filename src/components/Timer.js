@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const Timer = () => {
   const [timeElapsed, setTimeElapsed] = useState(0); // in milliseconds
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState(100);
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -25,10 +25,10 @@ const Timer = () => {
   };
 
   return (
-    <div>
+    <div className="card">
       <p className="subtitle">Timer</p>
       <div>
-        <p>{!duration || !timeElapsed ? 0 : (timeElapsed / 1000).toFixed(2)}</p>
+        <p>{(timeElapsed / 1000).toFixed(2)} seconds</p>
         <div
           style={{
             height: 20,
@@ -37,6 +37,8 @@ const Timer = () => {
             display: "flex",
             flexDirection: "row",
             justifyContent: "flex-start",
+            borderRadius: 3,
+            margin: "0px, 10px"
           }}
         >
           <div
@@ -46,7 +48,7 @@ const Timer = () => {
                 !duration || !timeElapsed
                   ? 0
                   : timeElapsed / 10 / duration + "%",
-              backgroundColor: "red",
+              backgroundColor: "#98B4AA",
               transition: "all 0.04s ease-in",
             }}
           ></div>
@@ -60,7 +62,7 @@ const Timer = () => {
           value={duration}
           onChange={handleSliderChange}
         />
-        <button onClick={handleReset}>Reset</button>
+        <button onClick={handleReset} className="button">Reset</button>
       </div>
     </div>
   );

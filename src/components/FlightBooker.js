@@ -51,8 +51,9 @@ const FlightBooker = () => {
   }, [departureDate, returnDate, flightOption]);
 
   return (
-    <div>
+    <div className="card">
       <p className="subtitle">Flight Booker</p>
+      <div className="flight-input-container">
       <select value={flightOption} onChange={handleChange}>
         <option value="one-way flight">one-way flight</option>
         <option value="return flight">return flight</option>
@@ -63,7 +64,9 @@ const FlightBooker = () => {
         value={returnDate}
         onChange={handleReturnChange}
       />
-      <button disabled={btnDisabled}>Book</button>
+      <button disabled={btnDisabled} className="button">Book</button>
+      </div>
+     
     </div>
   );
 };

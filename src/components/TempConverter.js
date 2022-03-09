@@ -19,16 +19,20 @@ const TempConverter = () => {
   };
 
   return (
-    <div>
+    <div className="card">
       <p className="subtitle">Temperature Converter</p>
-      <label>
+      <div className="temp-input-container">
+      <label className="temp-label">
         Celcius:
-        <input type="text" value={degC} onChange={handleCelciusInput} />
+        <input type="text" value={degC} onChange={handleCelciusInput} className="temp-input"/>
       </label>
-      <label>
+      <p>=</p>
+      <label className="temp-label">
         Fahrenheit:
-        <input type="text" value={degF} onChange={handleFahrenheitInput} />
+        <input type="text" value={degF} onChange={handleFahrenheitInput} className="temp-input"/>
       </label>
+      </div>
+      
     </div>
   );
 };
