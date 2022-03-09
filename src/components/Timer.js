@@ -1,36 +1,34 @@
 import { useState, useEffect } from "react";
 
 const Timer = () => {
-  const [timeElapsed, setTimeElapsed] = useState(0); //in milliseconds
-  const [sliderVal, setSliderVal] = useState(0);
+  const [timeElapsed, setTimeElapsed] = useState(0); // in milliseconds
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     let timer = setTimeout(() => {
       setTimeElapsed((timeElapsed) => timeElapsed + 100);
     }, [100]);
 
-    if (timeElapsed >= 100000) {
+    if (timeElapsed / 10 / duration >= 100) {
       setTimeElapsed(0);
     }
 
     return () => clearTimeout(timer);
-  }, [timeElapsed, sliderVal]);
+  }, [timeElapsed, duration]);
 
   const handleReset = () => {
     setTimeElapsed(0);
-    setSliderVal(0);
   };
 
   const handleSliderChange = (event) => {
-    setTimeElapsed(event.target.value * 100);
-    setSliderVal(event.target.value);
+    setDuration(event.target.value);
   };
 
   return (
     <div>
       <p className="subtitle">Timer</p>
       <div>
-        <p>{timeElapsed / 1000}</p>
+        <p>{!duration || !timeElapsed ? 0 : (timeElapsed / 1000).toFixed(2)}</p>
         <div
           style={{
             height: 20,
@@ -44,18 +42,22 @@ const Timer = () => {
           <div
             style={{
               height: "100%",
-              width: timeElapsed / 1000 + "%",
+              width:
+                !duration || !timeElapsed
+                  ? 0
+                  : timeElapsed / 10 / duration + "%",
               backgroundColor: "red",
-              transition: "all 0.1s ease-in-out",
+              transition: "all 0.04s ease-in",
             }}
           ></div>
         </div>
+
         <input
           type="range"
           min="0"
-          max="1000"
+          max="100"
           step={0.1}
-          value={sliderVal}
+          value={duration}
           onChange={handleSliderChange}
         />
         <button onClick={handleReset}>Reset</button>

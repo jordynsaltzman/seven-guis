@@ -10,11 +10,6 @@ const FlightBooker = () => {
     setFlightOption(event.target.value);
   };
 
-  //   const dateReg = new RegExp('/^\d{2}[.]\d{2}\1\d{4}$/');
-//   const dateReg = new RegExp("^(?:(?:31.(?:0?[13578]|1[02]))\\1|(?:(?:29|30).(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29.0?2\\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8]).(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$")
-//   console.log(dateReg.test("05.06.1994"))
-
-
   const handleDepartureChange = (event) => {
     const departDate = event.target.value;
     setDepartureDate(departDate);
@@ -49,7 +44,7 @@ const FlightBooker = () => {
             departureDate.substring(0, 2) <= returnDate.substring(0, 2)
           ) {
             setBtnDisabled(false);
-          } 
+          }
         }
       }
     }
