@@ -6,7 +6,6 @@ const Counter = () => {
   
   const increaseCount = () => {
     setCount(count + 1)
-    console.log(count)
   }
 
   return (
