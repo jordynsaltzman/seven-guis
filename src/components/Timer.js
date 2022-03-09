@@ -29,7 +29,9 @@ const Timer = () => {
       <p className="subtitle">Timer</p>
       <div>
         <p>{(timeElapsed / 1000).toFixed(2)} seconds</p>
-        <div
+        <div className="time-elapsed-container">
+            <p className="elapsed-label">Elapsed Time:</p>
+            <div
           style={{
             height: 20,
             width: "100%",
@@ -38,7 +40,7 @@ const Timer = () => {
             flexDirection: "row",
             justifyContent: "flex-start",
             borderRadius: 3,
-            margin: "0px, 10px"
+            margin: "0px, 10px",
           }}
         >
           <div
@@ -52,17 +54,24 @@ const Timer = () => {
               transition: "all 0.04s ease-in",
             }}
           ></div>
+        </div></div>
+        
+        <div style={{display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center', justifyContent: 'space-between'}}>
+          <label className="duration-label">
+            Duration:
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step={0.1}
+              value={duration}
+              onChange={handleSliderChange}
+            />
+          </label>
+          <button onClick={handleReset} className="button">
+            Reset
+          </button>
         </div>
-
-        <input
-          type="range"
-          min="0"
-          max="100"
-          step={0.1}
-          value={duration}
-          onChange={handleSliderChange}
-        />
-        <button onClick={handleReset} className="button">Reset</button>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ const TempConverter = () => {
         Celcius:
         <input type="text" value={degC} onChange={handleCelciusInput} className="temp-input"/>
       </label>
-      <p>=</p>
+      <p className="equals-sign">=</p>
       <label className="temp-label">
         Fahrenheit:
         <input type="text" value={degF} onChange={handleFahrenheitInput} className="temp-input"/>
