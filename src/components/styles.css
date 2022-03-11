@@ -154,6 +154,31 @@ input {
     align-items: center;
 }
 
+.time-elapsed-bar-outer {
+    height: 20px;
+    width: 100%;
+    background-color: #dedede;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-radius: 3;
+    margin: 0px, 10px;
+}
+
+.time-elapsed-bar-inner {
+  height: 100%;
+  background-color: #98B4AA;
+  transition: all 0.04s ease-in;
+}
+
+.duration-container { 
+  display: flex;
+  flex-direction: row;
+   margin-top: 10px;
+   align-items: center;
+   justify-content: space-between
+}
+
 .form-container {
         display: flex;
         flex-direction: column;
@@ -205,6 +230,8 @@ input {
 .button-div {
   margin-top: 30px;
 }
+
+
 
 @media only screen and (max-width: 600px) {
   .card {

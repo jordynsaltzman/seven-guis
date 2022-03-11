@@ -28,35 +28,25 @@ const Timer = () => {
     <div className="card">
       <p className="subtitle">Timer</p>
       <div>
-        <p className="seconds">{(timeElapsed / 1000).toFixed(2)} / {duration} seconds</p>
+        <p className="seconds">
+          {(timeElapsed / 1000).toFixed(2)} / {duration} seconds
+        </p>
         <div className="time-elapsed-container">
-            <p className="elapsed-label">Elapsed Time:</p>
+          <p className="elapsed-label">Elapsed Time:</p>
+          <div className="time-elapsed-bar-outer">
             <div
-          style={{
-            height: 20,
-            width: "100%",
-            backgroundColor: "#dedede",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            borderRadius: 3,
-            margin: "0px, 10px",
-          }}
-        >
-          <div
-            style={{
-              height: "100%",
-              width:
-                !duration || !timeElapsed
-                  ? 0
-                  : timeElapsed / 10 / duration + "%",
-              backgroundColor: "#98B4AA",
-              transition: "all 0.04s ease-in",
-            }}
-          ></div>
-        </div></div>
-        
-        <div style={{display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center', justifyContent: 'space-between'}}>
+              className="time-elapsed-bar-inner"
+              style={{
+                width:
+                  !duration || !timeElapsed
+                    ? 0
+                    : timeElapsed / 10 / duration + "%",
+              }}
+            ></div>
+          </div>
+        </div>
+
+        <div className="duration-container">
           <label className="duration-label">
             Duration:
             <input
@@ -66,7 +56,7 @@ const Timer = () => {
               step={0.01}
               value={duration}
               onChange={handleSliderChange}
-              style={{padding: 0}}
+              style={{ padding: 0 }}
             />
           </label>
           <button onClick={handleReset} className="button">
