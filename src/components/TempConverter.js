@@ -22,17 +22,26 @@ const TempConverter = () => {
     <div className="card">
       <p className="subtitle">Temperature Converter</p>
       <div className="temp-input-container">
-      <label className="temp-label">
-        Celcius:
-        <input type="text" value={degC} onChange={handleCelciusInput} className="temp-input"/>
-      </label>
-      <p className="equals-sign">=</p>
-      <label className="temp-label">
-        Fahrenheit:
-        <input type="text" value={degF} onChange={handleFahrenheitInput} className="temp-input"/>
-      </label>
+        <label className="temp-label">
+          Celcius:
+          <input
+            type="text"
+            value={degC}
+            onChange={handleCelciusInput}
+            className="temp-input"
+          />
+        </label>
+        <p className="equals-sign">=</p>
+        <label className="temp-label">
+          Fahrenheit:
+          <input
+            type="text"
+            value={degF}
+            onChange={handleFahrenheitInput}
+            className="temp-input"
+          />
+        </label>
       </div>
-      
     </div>
   );
 };
