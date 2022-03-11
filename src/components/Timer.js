@@ -28,7 +28,7 @@ const Timer = () => {
     <div className="card">
       <p className="subtitle">Timer</p>
       <div>
-        <p>{(timeElapsed / 1000).toFixed(2)} seconds</p>
+        <p className="seconds">{(timeElapsed / 1000).toFixed(2)} / {duration} seconds</p>
         <div className="time-elapsed-container">
             <p className="elapsed-label">Elapsed Time:</p>
             <div
@@ -63,9 +63,10 @@ const Timer = () => {
               type="range"
               min="0"
               max="100"
-              step={0.1}
+              step={0.01}
               value={duration}
               onChange={handleSliderChange}
+              style={{padding: 0}}
             />
           </label>
           <button onClick={handleReset} className="button">

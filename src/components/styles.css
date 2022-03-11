@@ -50,7 +50,7 @@ input {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.15);
-  width: 50%;
+  width: 60%;
   margin: 10px 0px;
 }
 
@@ -65,7 +65,7 @@ input {
     margin-right: 12px;
 }
 
-.button {
+.button, .disabled-button, .button-crud, .disabled-button-crud{
     border-radius: 10px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.25);
     border: none;
@@ -76,12 +76,24 @@ input {
     font-weight: 500;
     letter-spacing: 0.8px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 10px;
+}
+
+.button-crud, .disabled-button-crud {
+  padding: 4px 10px;
+}
+
+.disabled-button {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button:active{
+    box-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.6);
 
 }
 
-.button:active {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
-
+.button:hover {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 .temp-input-container {
@@ -91,11 +103,14 @@ input {
     align-items: center;
 }
 
-.temp-label, .equals-sign, .duration-label, .elapsed-label {
+.temp-label, .equals-sign, .duration-label, .elapsed-label, .name-label, .success-msg{
     font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.success-msg {
+  text-align: center;
+}
 
 .flight-input-container {
     display: flex;
@@ -108,12 +123,17 @@ input {
     margin: 5px 0px;
 }
 
-.flight-input-container button {
-    margin-top: 10px;
+.invalid-input {
+    background-color: red;
+}
+
+.flight-input-container .button {
+    margin: 10px 0px 0px 0px;
 }
 
 .flight-input-container select {
     padding: 3px 5px;
+    margin-bottom: 5px;
 }
 
 .duration-label {
@@ -122,11 +142,68 @@ input {
     align-items: center;
 }
 
+.seconds, .list-item{
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .time-elapsed-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+}
+
+.form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+        width: 100%;
+}
+
+.listbox {
+  display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border: 1px solid #dedede;
+        width: 100%;
+        margin: 10px 10px 0px 0px;
+        border-radius: 5px;
+        padding: 2px 0px;
+       
+}
+
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%
+
+}
+.list-item p {
+  margin: 5px 0px;
+  padding: 0px 10px;
+}
+
+.name-input-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0px;
+}
+
+.listbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-div {
+  margin-top: 30px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -145,5 +222,21 @@ input {
   }
   .subtitle {
     font-size: 10px;
+  }
+  .form-container {
+    align-items: stretch;
+  }
+  .listbox-container {
+  flex-direction: column;
+  
+  }
+  .listbox {
+    min-height: 100px;
+  }
+  .button-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
