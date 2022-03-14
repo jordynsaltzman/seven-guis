@@ -35,6 +35,10 @@ input {
   color: #3a3b3c;
 }
 
+.subtitle:hover {
+  cursor: pointer;
+}
+
 .nav-links {
   display: flex;
   flex-direction: row;
